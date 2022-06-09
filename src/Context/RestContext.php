@@ -9,14 +9,21 @@ use Behatch\HttpCall\Request;
 
 class RestContext extends BaseContext
 {
-    /**
-     * @var Request
-     */
-    protected $request;
+    protected Request $request;
+    protected $response;
 
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->response = null;
+    }
+
+    /**
+     * Get the current request
+     */
+    public function getRequest() : Request
+    {
+        return $this->request;
     }
 
     /**
